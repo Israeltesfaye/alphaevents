@@ -8,22 +8,23 @@ const client = new UploadClient({ publicKey: '569fea34877cd8f7543d' })
 
 
 createProduct=async(req,res)=>{
-   try {
+   /*try {*/
     img=await client.uploadFile(req.body.image_url)
   const product=await Product.create({
-        img_url:img.cdnUrl,
+        url:img.cdnUrl,
         price:req.body.price,
         description:req.body.description,
     })
     res.send(product)
-   } catch (error) {
+   } /*catch (error) {
     res.sendStatus(400)
    }
-}
+   res.send("nvxcvxcvhh")
+}*/
 getProducts=async(req,res)=>{
     try {
         products=await Product.find()
-        res.send(products)
+        res.json(products)
     } catch (error) {
       res.sendStatus(400)
     }

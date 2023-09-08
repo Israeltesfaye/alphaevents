@@ -6,6 +6,7 @@ function Nav() {
   return (
     <nav>
     <img src={logo} alt="Logo" />
+    <h3>Alpha Events</h3>
     <ul>
     <NavLink to={'/'}>Store</NavLink>
      </ul>

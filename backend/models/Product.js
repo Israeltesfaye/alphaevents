@@ -1,7 +1,7 @@
 const mongoose=require('mongoose')
 
 const ProductSchema=new mongoose.Schema({
-    img_url:{
+    url:{
         type:String
     },
     price:{
