@@ -1,21 +1,29 @@
 import React from 'react'
-events=[
+import EventCard from '../components/EventCard'
+var events=[
     {
         title:'rophnan concerte',
         description:'see you soon',
         tickets:50,
         price:'ETB 300'
-    }
+    },
+    {
+      title:'tedy concerte',
+      description:'see you soon',
+      tickets:50,
+      price:'ETB 1000'
+  },
 ]
 function Events() {
   return (
-    <div>
+    <div className='events'>
          {events.map((event)=>{
       return (
         <div key={events.indexOf(event)}>
-                  hello
+                 <EventCard event={event}/> 
         </div>
       )
+      console.log("jxkzx")
     })}
     </div>
   )

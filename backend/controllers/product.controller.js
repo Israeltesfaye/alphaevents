@@ -1,13 +1,19 @@
 const Product=require('../models/Product.js')
 
 
+const { UploadClient }=require('@uploadcare/upload-client')
+const client = new UploadClient({ publicKey: '569fea34877cd8f7543d' })
+
+
+
 
 createProduct=async(req,res)=>{
    try {
-    const product=await Product.create({
-        image_url:req.body.image_url,
+    img=await client.uploadFile(req.body.image_url)
+  const product=await Product.create({
+        img_url:img.cdnUrl,
         price:req.body.price,
-        description:req.body.description
+        description:req.body.description,
     })
     res.send(product)
    } catch (error) {

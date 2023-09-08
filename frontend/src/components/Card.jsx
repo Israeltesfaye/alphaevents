@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 function Card({tshirt}) {
 const navigate=useNavigate()
   return (
-    <div className='card' onClick={()=>{navigate(`store/${tshirt.id}`)}}>
+    <div className='card' onClick={()=>{navigate(`order/${tshirt.id}`)}}>
         <img src={image} alt={tshirt.image_url} />
         <p>{tshirt.price}</p>
         </div>

@@ -7,11 +7,11 @@ function Nav() {
     <nav>
     <img src={logo} alt="Logo" />
     <ul>
-    <NavLink to={'/'}><a>Store</a></NavLink>
-     <NavLink to={'/events'}><a>Events</a></NavLink>
+    <NavLink to={'/'}>Store</NavLink>
      </ul>
     </nav>
   )
+
 }
 
 export default Nav

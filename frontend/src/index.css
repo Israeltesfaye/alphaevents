@@ -53,3 +53,31 @@ nav a{
     border-radius:10px;
     color:white;
 }
+.events{
+    position: absolute;
+    bottom:0;
+}
+.admin{
+    position: absolute;
+    bottom:0;
+    height:90%;
+    width:100%;
+}
+.admin img{
+    position:absolute;
+    top:30%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    height:15%;
+    width: 8%;
+    border-radius:10px;
+    background-image:url('./assets/upload.png');
+    background-size:cover;
+}
+.admin .form{
+display:none;
+position:absolute;
+top:40%;
+left:50%;
+transform:translate(-50%,-50%);
+}
