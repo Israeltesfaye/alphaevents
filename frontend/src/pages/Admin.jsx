@@ -18,7 +18,7 @@ function Admin() {
               'Content-Type': 'application/json'
             },
             body:JSON.stringify({
-url:,
+url:"kjjjjhjh",
 description:desc,
 price:price,
 token:"eyJhbGciOiJIUzI1NiJ9.OGZlOGM2MzMtNGZjMy00ZTQxLTlhYWYtZTQ3N2ZiZDA5OGQw.rFIuos3RsErEw1Il6bUri1iOxEWoo_EcCNsgGKI9DpU"

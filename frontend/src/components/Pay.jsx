@@ -15,9 +15,10 @@ function Pay({price}) {
             <input type="hidden" name="title" value="let us do"/>
             <input type="hidden" name="description" value="buying clothes"/>
             <input type="hidden" name="logo" value="https://yourcompany.com/logo.png"/>
-            <input type="hidden" name="callback_url" value="https://example.com/callbackurl"/>
+            <input type="hidden" name="callback_url" value="http://localhost:8000/api/order/"/>
             <input type="hidden" name="return_url" value="http://localhost:8000/thanks"/>
             <input type="hidden" name="meta[title]" value="test"/>
+            <input type="number" name="quantity" className='quantity' />
       <button type="submit">Buy</button>
         </form>
     </div>
