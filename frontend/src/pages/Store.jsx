@@ -99,18 +99,14 @@ import Card from '../components/Card'
 ]*/
 function Home() {
 const [tshirts,setTshirts]=useState([])
- 
-useEffect(() => {
-   async function fetchData() {
+    async function fetchData() {
     const response = await fetch("http://localhost:8000/api/products/");
     const data=await response.json()
     setTshirts(data)
     console.log(tshirts)
     }
+useEffect(() => {
     fetchData();
-    
-        
-    
   }, []); 
 
   return (

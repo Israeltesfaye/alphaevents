@@ -1,30 +1,22 @@
 const Product=require('../models/Product.js')
 
 
-const { UploadClient }=require('@uploadcare/upload-client')
-const client = new UploadClient({ publicKey: '569fea34877cd8f7543d' })
-
-
-
-
 createProduct=async(req,res)=>{
-   /*try {*/
-    img=await client.uploadFile(req.body.image_url)
+try{
   const product=await Product.create({
-        url:img.cdnUrl,
+        url:req.body.url,
         price:req.body.price,
         description:req.body.description,
     })
-    res.send(product)
-   } /*catch (error) {
+   res.status(200).json({msg:"product created"})
+   } catch (error) {
     res.sendStatus(400)
    }
-   res.send("nvxcvxcvhh")
-}*/
+}
 getProducts=async(req,res)=>{
     try {
         products=await Product.find()
-        res.json(products)
+        res.status(200).json(products)
     } catch (error) {
       res.sendStatus(400)
     }
@@ -44,7 +36,7 @@ updateProduct=async(req,res)=>{
            price:req.body.price,
            description:req.body.description 
         })
-        res.sendStatus(200)
+        res.sendStatus(200).json({msg:"product updated"})
     } catch (error) {
         res.sendStatus(400)
     }
@@ -52,7 +44,7 @@ updateProduct=async(req,res)=>{
 getProduct=async(req,res)=>{
     try {
       product=await Product.findById(req.params.id)  
-       res.send(product)
+       res.status(200).json(product)
     } catch (error) {
         res.sendStatus(400)
     }
