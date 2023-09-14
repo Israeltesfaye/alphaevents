@@ -1,16 +1,36 @@
-import React from 'react'
+import React,{useState} from 'react'
 import '../login.css'
 
 function Login() {
+    const [username,setName]=useState('')
+    const [email,setEmail]=useState('')
+    const [password,setPassword]=useState('')
+async function register(e){
+    e.preventDefault()
+   var req=await fetch('http://localhost:8000/api/user/login',{
+        method:'POST',
+        headers: {
+            'Accept': 'application.json',
+            'Content-Type': 'application/json'
+          },
+          body:JSON.stringify({
+            username:username,
+            password:password,
+            email:email
+          })
+    })
+   var data=await req.json()
+    console.log(data)
+}
   return (
     <div>
-         <div class="box">
-         <img src="user.png" class="image"/>
+         <div className="box">
+         <img src="user.png" className="image"/>
         <h1>login here</h1>
-        <form method='POST' action='http://localhost:8000/api/user/login'>
-            <input type="text " name="username" placeholder="Enter username"/>
-            <input type="email" name="email" placeholder="Enter email"/>
-            <input type="password " name="password" placeholder="Enter password"/>
+        <form onSubmit={(e)=>{register(e)}}>
+            <input type="text " name="username" placeholder="Enter username" onChange={(e)=>{setName(e.target.value)}}/>
+            <input type="email" name="email" placeholder="Enter email" onChange={(e)=>{setEmail(e.target.value)}}/>
+            <input type="password " name="password" placeholder="Enter password" onChange={(e)=>{setPassword(e.target.value)}}/>
             <input type="submit" value="login"/>
             <a href="#">forgot password</a>
         </form>

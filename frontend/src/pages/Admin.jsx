@@ -14,11 +14,11 @@ function Admin() {
        let saved=await fetch('http://localhost:8000/api/products/' , {
             method: 'POST',
             headers: {
-              Accept: 'application.json',
+              'Accept': 'application.json',
               'Content-Type': 'application/json'
             },
             body:JSON.stringify({
-url:"kjjjjhjh",
+url:url,
 description:desc,
 price:price,
 token:"eyJhbGciOiJIUzI1NiJ9.OGZlOGM2MzMtNGZjMy00ZTQxLTlhYWYtZTQ3N2ZiZDA5OGQw.rFIuos3RsErEw1Il6bUri1iOxEWoo_EcCNsgGKI9DpU"

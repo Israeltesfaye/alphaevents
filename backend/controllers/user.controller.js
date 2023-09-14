@@ -1,9 +1,10 @@
 const User=require('../models/User.js')
 const {validateRegister,validateLogin}=require('../middlewares/validation.js')
 const bcrypt=require('bcryptjs')
+const jwt=require('jsonwebtoken')
 
 createUser=async(req,res)=>{
- const {error}=validateRegister(req.body)
+ const error=validateRegister(req.body)
  if (error) return res.status(400).json(error.details[0].message)
  const emailExist=await User.findOne({email:req.body.email})
 if(emailExist) return res.status(400).json('email already registered')
@@ -29,7 +30,7 @@ deleteUser=async(req,res)=>{
   }
 }
 login=async(req,res)=>{
-  const {error}=validateLogin(req.body)
+  const error=validateLogin(req.body)
   if (error) return res.status(400).json(error.details[0].message)
   const user=await User.findOne({email:req.body.email})
    if(!user) return res.status(400).json('email not found')

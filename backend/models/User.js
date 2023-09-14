@@ -2,7 +2,7 @@ const mongoose=require('mongoose')
 
 const UserSchema=new mongoose.Schema({
     username:{
-        type:String
+        type:String,
         min:6,
         max:16
     },

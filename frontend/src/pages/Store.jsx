@@ -114,7 +114,7 @@ useEffect(() => {
     {tshirts.map((tshirt)=>{
       return (
         <div key={tshirts.indexOf(tshirt)}>
-          <Card tshirt={tshirt}/>       
+          <Card tshirts={tshirts}/>       
         </div>
       )
     })}
