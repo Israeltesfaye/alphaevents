@@ -16,7 +16,7 @@ try{
 getProducts=async(req,res)=>{
     try {
         products=await Product.find()
-        res.status(200).json(products)
+        res.json(products)
     } catch (error) {
       res.sendStatus(400)
     }

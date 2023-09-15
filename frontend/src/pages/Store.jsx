@@ -103,22 +103,23 @@ const [tshirts,setTshirts]=useState([])
     const response = await fetch("http://localhost:8000/api/products/");
     const data=await response.json()
     setTshirts(data)
-    console.log(tshirts)
+    console.log(data)
     }
 useEffect(() => {
     fetchData();
   }, []); 
 
   return (
-    <div className='main'>
+   <div className='main'>
     {tshirts.map((tshirt)=>{
       return (
         <div key={tshirts.indexOf(tshirt)}>
-          <Card tshirts={tshirts}/>       
+          <Card t={tshirt}/>       
         </div>
       )
     })}
     </div>
+
   )
 }
 

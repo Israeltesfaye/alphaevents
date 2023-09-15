@@ -3,13 +3,13 @@ const axios=require("axios")
 
 createOrder=async()=>{
  var request=await axios({
-  url: `https://api.chapa.co/v1/transaction/verify/txn-alpha-${req.body.tnx_ref}`,
+  url: `https://api.chapa.co/v1/transaction/verify/txn-alpha-${req.body.tx_ref}`,
   method: 'get',
   headers:{
     Authorization:`Bearer ${process.env.CHAPA_SECRET_KEY}`
   }
 })
-console.log(request)
+if(request.status==='success'){
   try{
     order=await Order.create({
       productId:req.body.productId,
@@ -19,7 +19,8 @@ console.log(request)
    
   }catch(e){
     res.sendStatus(400)
-  }
+  }}
+
 }
 
 module.exports={
