@@ -100,7 +100,7 @@ import Card from '../components/Card'
 function Home() {
 const [tshirts,setTshirts]=useState([])
     async function fetchData() {
-    const response = await fetch("http://localhost:8000/api/products/");
+    const response = await fetch("https://alphaevent.onrender.com/api/products/");
     const data=await response.json()
     setTshirts(data)
     console.log(data)

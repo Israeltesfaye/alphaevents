@@ -11,7 +11,7 @@ function Admin() {
     const [desc, getDisc] = useState("");
     const [url, getUrl] = useState("");
    async function handleSubmit(){
-       let saved=await fetch('http://localhost:8000/api/products/' , {
+       let saved=await fetch('https://alphaevent.onrender.com/api/products/' , {
             method: 'POST',
             headers: {
               'Accept': 'application.json',

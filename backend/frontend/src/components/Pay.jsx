@@ -3,7 +3,7 @@ import React from 'react'
 function Pay({price,email,fname,lname,desc}) {
     const ref=`txn-alpha-${Date.now()}`
    /* async function paySubmit(){
-      let response=await fetch('http://localhost:8000/api/order',{
+      let response=await fetch('https://alphaevent.onrender.com/api/order',{
         method:'POST',
         headers: {
             'Accept': 'application.json',
@@ -27,8 +27,8 @@ function Pay({price,email,fname,lname,desc}) {
             <input type="hidden" name="title" value="let us do"/>
             <input type="hidden" name="description" value={desc}/>
             <input type="hidden" name="logo" value="https://yourcompany.com/logo.png"/>
-            <input type="hidden" name="callback_url" value="http://localhost:8000/api/order/"/>
-            <input type="hidden" name="return_url" value="http://localhost:8000/thanks"/>
+            <input type="hidden" name="callback_url" value="https://alphaevent.onrender.com/api/order/"/>
+            <input type="hidden" name="return_url" value="https://alphaevent.onrender.com/thanks"/>
             <input type="hidden" name="meta[title]" value="test"/>
          
       <button type="submit">Buy</button>

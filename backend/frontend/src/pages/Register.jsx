@@ -11,7 +11,7 @@ function Register() {
     const [password,setPassword]=useState('')
 async function register(e){
 e.preventDefault()
-  var  req=await fetch('http://localhost:8000/api/user/register',{
+  var  req=await fetch('https://alphaevent.onrender.com/api/user/register',{
         method:'POST',
         headers: {
             'Accept': 'application.json',
