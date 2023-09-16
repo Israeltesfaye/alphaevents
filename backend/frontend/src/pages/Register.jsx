@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import '../login.css'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate,NavLink} from 'react-router-dom'
 
 function Register() {
     
@@ -42,7 +42,7 @@ e.preventDefault()
             <input type="email" name="email" placeholder="Enter email" onChange={(e)=>{setEmail(e.target.value)}}/>
             <input type="password " name="password" placeholder="Enter password" onChange={(e)=>{setPassword(e.target.value)}}/>
             <input type="submit" value="register"/>
-            <a href="#">forgot password</a>
+            <NavLink to='/login'>login</NavLink>
         </form>
 
 

@@ -1,5 +1,19 @@
-<input type="file" name="file" id="file">
+<div class="order">
+<button>x</button>
+<img src="WIN_20230907_17_20_01_Pro.jpg" alt="order">
+<p>email <span>meten</span></p>
+</div>
+<form metod="get" action="localhost:5173">
+    <button type="submit">submit</button>
+</form>
 <script>
-    file=document.querySelector("#file")
-    console.log(file.value)
+    document.querySelectorAll('button')[1].onclick=()=>{
+        alert('hello')
+    }
 </script>
+<style>
+    .order{
+        width:30%;
+        height:20%;
+    }
+</style>

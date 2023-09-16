@@ -1,5 +1,6 @@
 import React,{useEffect, useState} from 'react'
 import Card from '../components/Card'
+import { useNavigate } from 'react-router-dom';
 
 
 /*var tshirts=[
@@ -98,6 +99,7 @@ import Card from '../components/Card'
     
 ]*/
 function Home() {
+    const navigate=useNavigate()
 const [tshirts,setTshirts]=useState([])
     async function fetchData() {
     const response = await fetch("https://alphaevent.onrender.com/api/products/");
@@ -109,16 +111,18 @@ useEffect(() => {
     fetchData();
   }, []); 
 
-  return (
-   <div className='main'>
-    {tshirts.map((tshirt)=>{
-      return (
-        <div key={tshirts.indexOf(tshirt)}>
-          <Card t={tshirt}/>       
-        </div>
-      )
-    })}
-    </div>
+  return (localStorage.getItem('user')?
+  <div className='main'>
+  {tshirts.map((tshirt)=>{
+    return (
+      <div key={tshirts.indexOf(tshirt)}>
+        <Card t={tshirt}/>       
+      </div>
+    )
+  })}
+  </div> : location.pathname="/login"
+
+  
 
   )
 }

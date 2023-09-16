@@ -14,7 +14,7 @@ let actualPrice=`ETB ${t.price}`
         <img src={t.url} alt={t.url} className='card'/>
         <p>{actualPrice}</p>
         <input type="number" name="quantity" className='quantity'  onChange={(e)=>{setQuantity(e.target.value)}} value={quantity}/>
-        <Pay price={fprice} email={user.email} fname={user.firstname} lname={user.lastname} desc={t.description}/>  
+        <Pay price={fprice} email={user.email} fname={user.firstname} lname={user.lastname} desc={t.description} q={quantity} id={t._id}/>  
         </div>
   )
  

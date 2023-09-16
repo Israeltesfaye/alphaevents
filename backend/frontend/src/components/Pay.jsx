@@ -1,19 +1,25 @@
 import React from 'react'
 
-function Pay({price,email,fname,lname,desc}) {
+function Pay({price,email,fname,lname,desc,q,id}) {
     const ref=`txn-alpha-${Date.now()}`
-   /* async function paySubmit(){
-      let response=await fetch('https://alphaevent.onrender.com/api/order',{
+    async function paySubmit(){
+      let fresponse=await fetch(`https://alphaevent.onrender.com/api/products/${id}`)
+      let data=await fresponse.json()
+      const pid=data._id
+      let response=await fetch('https://alphaevent.onrender.com/api/order/',{
         method:'POST',
         headers: {
             'Accept': 'application.json',
             'Content-Type': 'application/json'
           },
           body:JSON.stringify({
-            tx_ref:ref
+            tx_ref:ref,
+            quantity:q,
+            productId:pid,
+            txid:ref
           })
       })
-    }*/
+    }
   return (
     <div>
         <form method="POST" action="https://api.chapa.co/v1/hosted/pay">
@@ -31,7 +37,7 @@ function Pay({price,email,fname,lname,desc}) {
             <input type="hidden" name="return_url" value="https://alphaevent.onrender.com/thanks"/>
             <input type="hidden" name="meta[title]" value="test"/>
          
-      <button type="submit">Buy</button>
+      <button type="submit" onClick={()=>{paySubmit()}}>Buy</button>
         </form>
     </div>
   )

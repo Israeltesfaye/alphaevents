@@ -80,7 +80,7 @@ nav a{
 .admin{
     position: absolute;
     bottom:0;
-    height:90%;
+    height:80%;
     width:100%;
 }
 .admin img{
@@ -100,4 +100,24 @@ position:absolute;
 top:40%;
 left:50%;
 transform:translate(-50%,-50%);
+}
+.n2{
+    width:100%;
+    height:10%;
+    display:flex;
+    justify-content: end;
+    position: absolute;
+    top:10%;
+}
+.n2 ul,.n2 ul button{
+margin:5px;
+}
+.m2{
+        position:absolute;
+        bottom:0;
+        width:100%;
+        height:70%;
+        display:none;
+        gap:20px;
+        grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 }

@@ -10,6 +10,12 @@ const orderSchema=new mongoose.Schema({
     price:{
         type:Number,
         max:5000
+    },
+    verified:{
+      type:Boolean
+    },
+    txid:{
+      type:String
     }
 })
 

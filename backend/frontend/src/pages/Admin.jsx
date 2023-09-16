@@ -1,8 +1,12 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import upload from '../assets/upload.png'
-
-
+import { NavLink } from 'react-router-dom'
+import Order from '../components/Order'
+//  <NavLink onClick={showOrder}>order</NavLink>
 function Admin() {
+ /* useEffect(()=>{
+    getOrders()
+  },[])*/
     function uploadClick(){
           document.querySelector(".form").style.display="grid"
           document.querySelector(".upload").style.display="none"
@@ -10,6 +14,7 @@ function Admin() {
     const [price, getPrice] = useState("");
     const [desc, getDisc] = useState("");
     const [url, getUrl] = useState("");
+    const [orders, setOrders] = useState([])
    async function handleSubmit(){
        let saved=await fetch('https://alphaevent.onrender.com/api/products/' , {
             method: 'POST',
@@ -28,10 +33,33 @@ token:localStorage.getItem('token')
           alert(msg.msg)
         
             }
+    function showOrder(){
+document.querySelector('.admin').style.display="none"
+document.querySelector('.m2').style.display="grid"
+    }
+    async function getOrders(){
+      const response=await fetch('https://alphaevent.onrender.com/api/order/')
+      const data=await response.json()
+      setOrders(data)
+      console.log('order')
+    } 
     return (
     localStorage.getItem('token')
-    ?
-    <div className='admin'>
+    ?<>
+    <nav className='n2'><ul>
+    <NavLink onClick={()=>{
+      document.querySelector('.admin').style.display="block"
+      document.querySelector('.m2').style.display="none"
+    }}>admin</NavLink>
+  
+    </ul></nav>
+    <div className="m2">
+      {orders.map((order)=>{
+        return(<Order order={order}/>)
+      })}
+    </div>
+        <div className='admin'> 
+
     <img src={upload} alt='add' onClick={uploadClick} className='upload'/>
     <div className='form'>
         <label htmlFor="file">image</label>
@@ -42,8 +70,8 @@ token:localStorage.getItem('token')
       <button onClick={handleSubmit}>upload</button>
     </div>
 </div>
+</>
     : <p>not allowed</p>
-    
   )
 }
 

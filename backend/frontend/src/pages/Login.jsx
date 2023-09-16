@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate,NavLink } from 'react-router-dom'
 import '../login.css'
 
 function Login() {
@@ -38,7 +38,7 @@ async function register(e){
             <input type="email" name="email" placeholder="Enter email" onChange={(e)=>{setEmail(e.target.value)}}/>
             <input type="password " name="password" placeholder="Enter password" onChange={(e)=>{setPassword(e.target.value)}}/>
             <input type="submit" value="login"/>
-            <a href="#">forgot password</a>
+            <NavLink to='/register'>register</NavLink>
         </form>
 
 
